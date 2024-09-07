@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/labo-iv-tp-sala-de-juegos",
+    "public": "dist/labo-iv-tp-sala-de-juegos/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
