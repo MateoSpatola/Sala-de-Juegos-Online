@@ -1,0 +1,59 @@
+.quiensoy {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.quiensoy-card {
+    align-items: center;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
+    width: 100%;
+}
+
+.title {
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.image {
+    border-radius: 6rem;
+}
+
+.descripcion {
+    margin-top: 2rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.linkedin-button {
+    padding: 1rem;
+}
+
+.github-button {
+    padding: 1rem;
+}
+
+.linkedin-button button {
+    background-color: #0e76a8;
+    
+}
+
+.github-button button {
+    background-color: #171515;
+}
+
+a {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    color: white;
+}
