@@ -1,0 +1,63 @@
+.login {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.form-login {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.email-input mat-form-field, 
+.password-input mat-form-field {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 1.5rem;
+}
+
+.forgot-password {
+    float: right;  
+    margin-top: 0rem;
+}
+
+.login-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.login-button button {
+    width: 100%;
+    max-width: 300px;
+    height: 3.5rem;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+}
+
+.login-button button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.signup {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    color: #00b9f1;
+}
