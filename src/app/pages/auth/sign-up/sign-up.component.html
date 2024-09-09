@@ -1,1 +1,66 @@
-<h1>Sign up</h1>
+<section class="signup">
+    <div class="form-signup">
+        <h1>Registrarse</h1>
+        <form method="">
+
+            <!-- Nombre -->
+            <div class="name-input">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" [formControl]="form.controls.name" placeholder="Ingrese su nombre">
+                    @if (form.controls.name.hasError('required')) {
+                        <mat-error>El nombre es <strong>requerido</strong></mat-error>
+                    }
+                    @if (form.controls.name.hasError('minlength')) {
+                        <mat-error>El nombre debe tener al menos <strong>4 caracteres</strong></mat-error>
+                    }
+                
+                </mat-form-field>
+            </div>
+
+            <!-- Correo -->
+            <div class="email-input">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                    <mat-icon matPrefix>email</mat-icon>
+                    <mat-label>Correo</mat-label>
+                    <input matInput type="email" [formControl]="form.controls.email" placeholder="Ingrese su correo">
+                    @if (form.controls.email.hasError('email')) {
+                        <mat-error >Ingrese un correo valido</mat-error>
+                    }
+                    @if (form.controls.email.hasError('required')) {
+                        <mat-error>El correo es <strong>requerido</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="password-input">
+                <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker>
+                    <mat-icon matPrefix>password</mat-icon>
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput [formControl]="form.controls.password" placeholder="Ingrese su contraseña" [type]="passwordType" >
+                    <mat-icon matSuffix (click)="showOrHidePassword()">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    @if (form.controls.password.hasError('required')) {
+                        <mat-error>La contraseña es <strong>requerida</strong></mat-error>
+                    }
+                    @if (form.controls.password.hasError('minlength')) {
+                        <mat-error>La contraseña debe tener al menos <strong>8 caracteres</strong></mat-error>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div class="signup-button">
+                <button mat-fab extended type="submit">
+                    <mat-icon>person_add</mat-icon>
+                    Crear cuenta
+                </button>
+            </div>
+
+            <div class="login">
+                <span>¿Ya tenes una cuenta? </span>
+                <a routerLink="/login">Iniciar sesión</a>
+            </div>
+        </form>
+    </div>
+</section>

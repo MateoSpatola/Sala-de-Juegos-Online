@@ -1,0 +1,64 @@
+.signup {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+}
+
+.form-signup {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.name-input mat-form-field,
+.email-input mat-form-field, 
+.password-input mat-form-field {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 1.5rem;
+}
+
+.forgot-password {
+    float: right;  
+    margin-top: 0rem;
+}
+
+.signup-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.signup-button button {
+    width: 100%;
+    max-width: 300px;
+    height: 3.5rem;
+    font-size: 1.2rem;
+    background-color: black;
+    color: white;
+}
+
+.signup-button button:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.login {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    margin-top: 0.5rem;
+    color: #00b9f1;
+}
