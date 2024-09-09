@@ -1,5 +1,5 @@
 .quiensoy {
-    padding: 2rem;
+    padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,8 +9,8 @@
 .quiensoy-card {
     align-items: center;
     background-color: white;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     border-radius: 15px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
     max-width: 450px;
@@ -22,17 +22,16 @@
 }
 
 .image {
-    border-radius: 6rem;
+    border-radius: 10rem;
 }
 
 .descripcion {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .buttons {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
 }
 
 .linkedin-button {
@@ -54,6 +53,5 @@
 
 a {
     text-decoration: none;
-    margin-top: 0.5rem;
     color: white;
 }
