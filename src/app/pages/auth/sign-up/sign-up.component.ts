@@ -55,8 +55,10 @@ export class SignUpComponent {
         this._notificationService.closeAlert();
         if (error.code === 'auth/email-already-in-use') {
           this._notificationService.showAlert('¡Error: El correo ya está registrado!', 'error', 2000);
+        } else if ((error.code === 'auth/invalid-email')) {
+          this._notificationService.showAlert('¡Error: El correo ingresado es incorrecto!', 'error', 2000);
         } else {
-          this._notificationService.showAlert('¡Error: No se pudo crear la cuenta!', 'error', 2000);
+          this._notificationService.showAlert('Error inesperado: ' + error.code, 'error', 2000);
         }
       }
     }

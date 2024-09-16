@@ -48,9 +48,13 @@ export class LoginComponent {
         this.form.reset();
         this._notificationService.closeAlert();
         this._notificationService.routerLink('/home');
-      } catch (error) {
+      } catch (error: any) {
         this._notificationService.closeAlert();
-        this._notificationService.showAlert('¡Error: Usuario y/o contraseña incorrectos!', 'error', 2000);
+        if (error.code === 'auth/invalid-credential') {
+          this._notificationService.showAlert('¡Error: Usuario y/o contraseña incorrectos!', 'error', 2000);
+        } else {
+          this._notificationService.showAlert('Error inesperado: ' + error.code, 'error', 2000);
+        }
       }
     }
   }
