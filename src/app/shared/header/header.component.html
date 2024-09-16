@@ -9,7 +9,28 @@
             <button mat-button routerLink="/login">Ingresar</button>
             <button mat-button routerLink="/signup">Registrarse</button>
         } @else {
-            <button mat-button (click)="signOut()">Cerrar sesión</button>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <span>{{user?.displayName}}</span>
+                <mat-icon>person</mat-icon>
+            </button>
+            
+            <mat-menu #menu="matMenu" class="menu">
+
+                <div class="user-info">
+                    <mat-icon>account_circle</mat-icon>
+                    <div class="user-details">
+                        <div class="user-name">{{user?.displayName}}</div>
+                        <div class="user-email">{{user?.email}}</div>
+                    </div>
+                </div>
+            
+                <mat-divider></mat-divider>
+                
+                <button mat-menu-item (click)="signOut()">
+                    <mat-icon>logout</mat-icon>
+                    <span>Cerrar sesión</span>
+                </button>
+            </mat-menu>
         }
     </mat-toolbar>
     <div class="separator"></div>

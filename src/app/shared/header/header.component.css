@@ -38,3 +38,27 @@ mat-toolbar button:hover {
     height: 5px;
     background: #00b9f1;
 }
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+}
+
+.user-info mat-icon {
+    margin-right: 0.5rem;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-email {
+    font-size: 0.8rem;
+    color: gray;
+}

@@ -6,6 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
 import { User } from '@angular/fire/auth';
+import { MatIcon } from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +16,10 @@ import { User } from '@angular/fire/auth';
   imports: [
     RouterLink,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIcon,
+    MatMenuModule,
+    MatDividerModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
@@ -34,14 +40,12 @@ export class HeaderComponent {
   }
 
   async signOut() {
-    this._notificationService.showLoadingAlert('Cerrando sesión...');
     try {
       await this._authService.signOut();
-      this._notificationService.closeAlert();
+      this._notificationService.showAlert('¡Sesión cerrada!', 'success', 1000);
     } catch (error) {
       this._notificationService.closeAlert();
       this._notificationService.showAlert('¡Error: No se pudo cerrar sesión!', 'error', 1000);
     }
   }
-
 }
