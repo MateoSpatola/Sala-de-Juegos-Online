@@ -55,5 +55,8 @@ export class LoginComponent {
     }
   }
 
+  quickLogin(email: string, password: string): void {
+    this.form.setValue({ email, password });
+  }
 }
 

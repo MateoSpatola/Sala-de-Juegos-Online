@@ -31,6 +31,7 @@
                 <a class="forgot-password" routerLink="/forgot-password">Olvidé mi contraseña</a>
             </div>
 
+            <!-- Botón de Ingreso -->
             <div class="login-button">
                 <button mat-fab extended type="submit">
                     <mat-icon>login</mat-icon>
@@ -38,10 +39,27 @@
                 </button>
             </div>
 
+            <!-- Registro -->
             <div class="signup">
                 <span>¿Necesitas una cuenta? </span>
                 <a routerLink="/signup">Registrarse</a>
             </div>
         </form>
+    </div>
+
+    <!-- Botones de acceso rápido -->
+    <div class="quick-access">
+        <button mat-raised-button (click)="quickLogin('admin@admin.com', '12345678')">
+            <mat-icon>how_to_reg</mat-icon>
+            Acceso rapido usuario 1
+        </button>
+        <button mat-raised-button (click)="quickLogin('mate@mail.com', 'hola1234')">
+            <mat-icon>how_to_reg</mat-icon>
+            Acceso rapido usuario 1
+        </button>
+        <button mat-raised-button (click)="quickLogin('user@mail.com', '12345678')">
+            <mat-icon>how_to_reg</mat-icon>
+            Acceso rapido usuario 1
+        </button>
     </div>
 </section>
