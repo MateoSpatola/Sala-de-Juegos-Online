@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import {MatCardModule} from '@angular/material/card';
 import { AuthService } from '../../../services/auth.service';
-import { User } from '@angular/fire/auth';
+import { Unsubscribe, User } from '@angular/fire/auth';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
@@ -17,15 +17,21 @@ import { MatIcon } from '@angular/material/icon';
 export class HomeComponent {
 
   private _authService = inject(AuthService);
+  private authSubscription?: Unsubscribe;
 
   user?: User | null;
   isLoggedIn: boolean = false;
 
   ngOnInit() {
-    this._authService.onAuthStateChanged(user => {
+    this.authSubscription = this._authService.auth.onAuthStateChanged(user => {
       this.user = user;
       this.isLoggedIn = !!user;
-    });
+    })
   }
 
+  ngOnDestroy() {
+    if (this.authSubscription) {
+      this.authSubscription();
+    }
+  }
 }

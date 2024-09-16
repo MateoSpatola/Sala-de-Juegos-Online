@@ -5,7 +5,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../services/auth.service';
 import { NotificationService } from '../../services/notification.service';
-import { User } from '@angular/fire/auth';
+import { Unsubscribe, User } from '@angular/fire/auth';
 import { MatIcon } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
@@ -29,14 +29,15 @@ export class HeaderComponent {
   private _authService = inject(AuthService);
   private _notificationService = inject(NotificationService);
 
+  private authSubscription?: Unsubscribe;
   user?: User | null;
   isLoggedIn: boolean = false;
 
   ngOnInit() {
-    this._authService.onAuthStateChanged(user => {
+    this.authSubscription = this._authService.auth.onAuthStateChanged(user => {
       this.user = user;
       this.isLoggedIn = !!user;
-    });
+    })
   }
 
   async signOut() {
@@ -46,6 +47,12 @@ export class HeaderComponent {
     } catch (error) {
       this._notificationService.closeAlert();
       this._notificationService.showAlert('¡Error: No se pudo cerrar sesión!', 'error', 1000);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.authSubscription) {
+      this.authSubscription();
     }
   }
 }

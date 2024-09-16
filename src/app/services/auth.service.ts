@@ -37,8 +37,4 @@ export class AuthService {
     return this.auth.signOut();
   }
 
-  onAuthStateChanged(callback: (user: User | null) => void): void {
-    onAuthStateChanged(this.auth, callback);
-  }
-
 }
