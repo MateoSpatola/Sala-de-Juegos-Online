@@ -1,5 +1,14 @@
 import { inject, Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, updateProfile, UserCredential } from '@angular/fire/auth';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  updateProfile,
+  UserCredential,
+  onAuthStateChanged,
+  User
+} from '@angular/fire/auth';
 import { IUser } from '../models/IUser';
 
 @Injectable({
@@ -20,11 +29,16 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, user.email, user.password);
   }
 
-  sendRecoveryEmail(user: IUser) {
+  sendRecoveryEmail(user: IUser): Promise<void> {
     return sendPasswordResetEmail(this.auth, user.email);
   }
 
   signOut(): Promise<void> {
     return this.auth.signOut();
   }
+
+  onAuthStateChanged(callback: (user: User | null) => void): void {
+    onAuthStateChanged(this.auth, callback);
+  }
+
 }

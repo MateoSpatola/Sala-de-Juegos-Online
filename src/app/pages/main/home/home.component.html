@@ -1,1 +1,73 @@
-<h1>Home</h1>
+<section class="home">
+    <h3>Juegos</h3>
+    <div class="games">
+        <mat-card class="game">
+            <mat-card-header class="title" [class.locked]="!isLoggedIn">
+                <mat-card-title><h3>Juego 1</h3></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="game-content" [class.locked]="!isLoggedIn">
+                    <p>Acceso al contenido del juego.</p>
+                </div>
+                <div class="lock-message">
+                    @if (!isLoggedIn) {
+                        <mat-icon>lock</mat-icon>
+                        <p>Inicia sesión para desbloquear este contenido.</p>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="game">
+            <mat-card-header class="title" [class.locked]="!isLoggedIn">
+                <mat-card-title><h3>Juego 2</h3></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="game-content" [class.locked]="!isLoggedIn">
+                    <p>Acceso al contenido del juego.</p>
+                </div>
+                <div class="lock-message">
+                    @if (!isLoggedIn) {
+                        <mat-icon>lock</mat-icon>
+                        <p>Inicia sesión para desbloquear este contenido.</p>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="game">
+            <mat-card-header class="title" [class.locked]="!isLoggedIn">
+                <mat-card-title><h3>Juego 3</h3></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="game-content" [class.locked]="!isLoggedIn">
+                    <p>Acceso al contenido del juego.</p>
+                </div>
+                <div class="lock-message">
+                    @if (!isLoggedIn) {
+                        <mat-icon>lock</mat-icon>
+                        <p>Inicia sesión para desbloquear este contenido.</p>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="game">
+            <mat-card-header class="title" [class.locked]="!isLoggedIn">
+                <mat-card-title><h3>Juego 4</h3></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="game-content" [class.locked]="!isLoggedIn">
+                    <p>Acceso al contenido del juego.</p>
+                </div>
+                <div class="lock-message">
+                    @if (!isLoggedIn) {
+                        <mat-icon>lock</mat-icon>
+                        <p>Inicia sesión para desbloquear este contenido.</p>
+                    }
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</section>

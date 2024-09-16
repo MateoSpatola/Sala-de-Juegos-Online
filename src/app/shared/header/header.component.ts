@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-header',
@@ -16,5 +19,29 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+
+  private _authService = inject(AuthService);
+  private _notificationService = inject(NotificationService);
+
+  user?: User | null;
+  isLoggedIn: boolean = false;
+
+  ngOnInit() {
+    this._authService.onAuthStateChanged(user => {
+      this.user = user;
+      this.isLoggedIn = !!user;
+    });
+  }
+
+  async signOut() {
+    this._notificationService.showLoadingAlert('Cerrando sesión...');
+    try {
+      await this._authService.signOut();
+      this._notificationService.closeAlert();
+    } catch (error) {
+      this._notificationService.closeAlert();
+      this._notificationService.showAlert('¡Error: No se pudo cerrar sesión!', 'error', 1000);
+    }
+  }
 
 }

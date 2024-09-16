@@ -25,7 +25,7 @@ import { NotificationService } from '../../../services/notification.service';
 export class LoginComponent {
 
   private _authService = inject(AuthService);
-  private _notificationService= inject(NotificationService)
+  private _notificationService= inject(NotificationService);
 
   @Input() passwordType: string = "password";
   hide: boolean = true;

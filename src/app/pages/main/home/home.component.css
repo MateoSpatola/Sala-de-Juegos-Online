@@ -1,0 +1,56 @@
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+mat-card {
+    align-items: center;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+mat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.title.locked,
+.game-content.locked {
+    filter: blur(5px);
+}
+
+.lock-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.lock-message mat-icon {
+    font-size: 60px;
+    width: 60px;
+    height: 60px;
+}

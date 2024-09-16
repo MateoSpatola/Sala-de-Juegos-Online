@@ -4,9 +4,13 @@
             <img src="favicon.ico" alt="Logo">
         </a>
         <span class="spacer"></span>
-        <button mat-button routerLink="/login">Ingresar</button>
-        <button mat-button routerLink="/signup">Registrarse</button>
         <button mat-button routerLink="/quiensoy">¿Quien soy?</button>
+        @if (!isLoggedIn) {
+            <button mat-button routerLink="/login">Ingresar</button>
+            <button mat-button routerLink="/signup">Registrarse</button>
+        } @else {
+            <button mat-button (click)="signOut()">Cerrar sesión</button>
+        }
     </mat-toolbar>
     <div class="separator"></div>
 </header>
