@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { IUser } from '../../../models/IUser';
 import { NotificationService } from '../../../services/notification.service';
+import { DatabaseService } from '../../../services/database.service';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginComponent {
 
   private _authService = inject(AuthService);
   private _notificationService= inject(NotificationService);
+  private _databaseService = inject(DatabaseService);
 
   @Input() passwordType: string = "password";
   hide: boolean = true;
@@ -45,6 +47,11 @@ export class LoginComponent {
       this._notificationService.showLoadingAlert('Iniciando sesión...');
       try {
         await this._authService.signIn(this.form.value as IUser);
+        const data = {
+          uid: this._authService.auth.currentUser?.uid,
+          date: new Date()
+        }
+        this._databaseService.setDocument('logs_login', data);
         this.form.reset();
         this._notificationService.closeAlert();
         this._notificationService.routerLink('/home');
