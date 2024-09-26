@@ -1,0 +1,52 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        
+        <section class="chat">
+    
+            <div class="title">Chat</div>
+        
+            <div class="messages">
+                @for(message of messages; track messages) {
+                    <div class="message" [ngClass] = "{'my-message': message.uid === user?.uid, 'other-message': message.uid !== user?.uid}">
+                        @if(message.uid !== user?.uid) {
+                            <div class="username">
+                                {{ message.username + ':' }}
+                            </div>
+                        }
+                        <div class="text">
+                            {{ message.message }}
+                        </div>
+                        <div class="date">
+                            {{ message.date }}
+                        </div>
+                    </div>
+                }
+            </div>
+        
+            <div class="input">
+                <mat-form-field appearance="outline">
+                    <mat-icon matPrefix>chat</mat-icon>
+        
+                    <input matInput type="text" placeholder="Mensaje" [(ngModel)]="message" autocomplete="off" (keydown.enter)="message ? sendMessage() : null">
+        
+                    @if (message) {
+                        <button matSuffix mat-icon-button (click)="sendMessage()">
+                            <mat-icon>send</mat-icon>
+                        </button>
+                    }
+                </mat-form-field>
+            </div>
+        
+        </section>
+
+    </mat-drawer>
+
+    <div>
+        <button mat-icon-button (click)="isLoggedIn ? drawer.toggle() : showLockedMessage()" class="button-chat">
+            <mat-icon>chat</mat-icon>
+        </button>
+    </div>
+
+</mat-drawer-container>
+
+

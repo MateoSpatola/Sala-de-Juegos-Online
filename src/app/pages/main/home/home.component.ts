@@ -3,14 +3,16 @@ import {MatCardModule} from '@angular/material/card';
 import { AuthService } from '../../../services/auth.service';
 import { Unsubscribe, User } from '@angular/fire/auth';
 import { MatIcon } from '@angular/material/icon';
+import { ChatComponent } from "../../../shared/chat/chat.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     MatCardModule,
-    MatIcon
-  ],
+    MatIcon,
+    ChatComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
