@@ -5,13 +5,13 @@
     <section class="home">
         <h3>Juegos</h3>
         <div class="games">
-            <mat-card class="game">
+            <mat-card class="game" [routerLink]="isLoggedIn ? '/ahorcado' : null">
                 <mat-card-header [class.locked]="!isLoggedIn">
-                    <mat-card-title><h3>Juego 1</h3></mat-card-title>
+                    <mat-card-title><h3>Ahorcado</h3></mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div [class.locked]="!isLoggedIn">
-                        <p>Acceso al contenido del juego.</p>
+                        <img src="ahorcado.png" alt="ahorcado" height="100px">
                     </div>
                     <div class="lock-message">
                         @if (!isLoggedIn) {
@@ -22,13 +22,13 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="game">
+            <mat-card class="game" [routerLink]="isLoggedIn ? '/mayor-menor' : null">
                 <mat-card-header [class.locked]="!isLoggedIn">
-                    <mat-card-title><h3>Juego 2</h3></mat-card-title>
+                    <mat-card-title><h3>¿Mayor o Menor?</h3></mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div [class.locked]="!isLoggedIn">
-                        <p>Acceso al contenido del juego.</p>
+                        <img src="mayor-menor.png" alt="mayor-menor" height="100px">
                     </div>
                     <div class="lock-message">
                         @if (!isLoggedIn) {
@@ -39,13 +39,13 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="game">
+            <mat-card class="game" [routerLink]="isLoggedIn ? '/preguntados' : null">
                 <mat-card-header [class.locked]="!isLoggedIn">
-                    <mat-card-title><h3>Juego 3</h3></mat-card-title>
+                    <mat-card-title><h3>Preguntados</h3></mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div [class.locked]="!isLoggedIn">
-                        <p>Acceso al contenido del juego.</p>
+                        <img src="preguntados.png" alt="preguntados" height="100px">
                     </div>
                     <div class="lock-message">
                         @if (!isLoggedIn) {
@@ -56,7 +56,7 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="game">
+            <mat-card class="game" [routerLink]="isLoggedIn ? '/juego4' : null">
                 <mat-card-header [class.locked]="!isLoggedIn">
                     <mat-card-title><h3>Juego 4</h3></mat-card-title>
                 </mat-card-header>

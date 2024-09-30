@@ -4,11 +4,13 @@ import { AuthService } from '../../../services/auth.service';
 import { Unsubscribe, User } from '@angular/fire/auth';
 import { MatIcon } from '@angular/material/icon';
 import { ChatComponent } from "../../../shared/chat/chat.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
+    RouterLink,
     MatCardModule,
     MatIcon,
     ChatComponent
