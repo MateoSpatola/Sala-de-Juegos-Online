@@ -5,35 +5,57 @@
     <section class="game">
         <h1>Ahorcado</h1>
         <div class="content">
-            @if (true) {
+
+            @if (!word) {
                 <div class="play-button">
-                    <button mat-icon-button >
+                    <button mat-icon-button (click)="getRandomWord()" [disabled]="loading">
                         <mat-icon>play_arrow</mat-icon>
                     </button>
                 </div>
             }
             @else {
-                @if (true) {
+                @if (!gameOver) {
                     <div class="close-button">
-                        <button mat-icon-button >
+                        <button mat-icon-button (click)="resetGame()" [disabled]="loading">
                             <mat-icon>close</mat-icon>
                         </button>
                     </div>
+
+                    <p>Vidas restantes: {{ life }}</p>
     
-                    <div class="">
-                        <p>Puntaje: </p>
-                        <p>Vidas restantes: </p>
+                    <div class="image">
+                        <img src="ahorcado.png" height="200px">
                     </div>
-                    
-                    <div class="">
-                        
+
+                    <div class="word">
+                        @for(letter of word; track $index) {
+                            @if(keysPressed.includes(letter)) {
+                                <p>{{ letter }}</p>
+                            } @else {
+                                <p></p>
+                            } 
+                        }
                     </div>
-    
+        
+                    <div class="keyboard">
+                        @for(row of keyboard; track $index) {
+                            <div class="keyboard-row">
+                                @for(key of row; track $index) {
+                                    <button class="keyboard-button" 
+                                    (click)="handleKeyPress(key)"
+                                    [disabled]="keysPressed.includes(key)"
+                                    > {{ key }} </button>
+                                }
+                            </div>
+                        }
+                    </div>        
                 }
                 @else {
-
+                    <div  class="message">
+                        <p>{{ message }}</p>
+                    </div>
                     <div class="reset-button">
-                        <button mat-icon-button >
+                        <button mat-icon-button (click)="resetGame()" [disabled]="loading">
                             <mat-icon>restart_alt</mat-icon>
                         </button>
                     </div>

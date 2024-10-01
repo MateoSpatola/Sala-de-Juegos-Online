@@ -9,6 +9,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-left: -70px;
 }
 
 .content {
@@ -35,8 +36,6 @@
     color: #dc3545;
 }
 
-
-
 .reset-button {
     display: flex;
     justify-content: center;
@@ -50,4 +49,65 @@
     background-color: #ffc107;
     color: white;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.play-button :disabled,
+.reset-button :disabled,
+.buttons :disabled,
+.keyboard-row :disabled {
+    background-color: #f0f0f0;
+    color: #a0a0a0;
+    border: none;
+    cursor: not-allowed;
+}
+
+.word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    gap: 1rem;
+}
+
+.word p {
+    width: 1rem;
+    height: 1.5rem;
+    display: inline-block;
+    border-bottom: 3px solid black;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.keyboard-button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.1s ease, font-size 0.1s ease;
+}
+
+.keyboard-button:hover {
+    transform: scale(0.95);
+    font-size: 15px;
+}
+
+.keyboard-button:active {
+    transform: scale(0.90);
+    font-size: 14px;
+    background-color: #ccc;
 }
