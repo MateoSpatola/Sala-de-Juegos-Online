@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { firstValueFrom } from 'rxjs';
 import { ChatComponent } from '../../../shared/chat/chat.component';
+import { NotificationService } from '../../../services/notification.service';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -19,6 +20,7 @@ import { ChatComponent } from '../../../shared/chat/chat.component';
 export class MayorMenorComponent {
 
   http = inject(HttpClient);
+  private _notificationService= inject(NotificationService);
 
   apiUrl: string = "https://www.deckofcardsapi.com/api/deck/"
 
@@ -29,27 +31,45 @@ export class MayorMenorComponent {
   message: string = "";
   score: number = 0;
   life: number = 5;
+  loading: boolean = false;
 
   ngOnInit() {
     this.getDeckOfCards();
   }
 
   async getDeckOfCards(decks: number = 1) {
-    const url = this.apiUrl + 'new/shuffle/?deck_count=' + decks;
-    const observable = this.http.get(url);
-    const response: any = await firstValueFrom(observable);
-    this.deckOfCards = response;
+    try {
+      this.loading = true;
+      const url = this.apiUrl + 'new/shuffle/?deck_count=' + decks;
+      const observable = this.http.get(url);
+      const response: any = await firstValueFrom(observable);
+      this.deckOfCards = response;
+    } 
+    catch (error: any) {
+      this._notificationService.showAlert('Error inesperado: ' + error.message, 'error', 2000);
+    }
+    finally {
+      this.loading = false;
+    }
   }
 
   async drawCards(cards: number = 1): Promise<void> {
-    const url = this.apiUrl + this.deckOfCards.deck_id + '/draw/?count=' + cards;
-    const observable = this.http.get(url);
-    const response: any = await firstValueFrom(observable);
-    
-    if (this.currentCard.cards) {
-      this.previousCard = this.currentCard;
+    try {
+      this.loading = true;
+      const url = this.apiUrl + this.deckOfCards.deck_id + '/draw/?count=' + cards;
+      const observable = this.http.get(url);
+      const response: any = await firstValueFrom(observable);
+      if (this.currentCard.cards) {
+        this.previousCard = this.currentCard;
+      }
+      this.currentCard = response;
+    } 
+    catch (error: any) {
+      this._notificationService.showAlert('Error inesperado: ' + error.message, 'error', 2000);
     }
-    this.currentCard = response;
+    finally {
+      this.loading = false;
+    }
   }
 
   getCardValue(value: string): number {

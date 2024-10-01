@@ -1,1 +1,44 @@
-<p>ahorcado works!</p>
+<div class="container">
+    
+    <app-chat></app-chat>
+
+    <section class="game">
+        <h1>Ahorcado</h1>
+        <div class="content">
+            @if (true) {
+                <div class="play-button">
+                    <button mat-icon-button >
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
+            }
+            @else {
+                @if (true) {
+                    <div class="close-button">
+                        <button mat-icon-button >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+    
+                    <div class="">
+                        <p>Puntaje: </p>
+                        <p>Vidas restantes: </p>
+                    </div>
+                    
+                    <div class="">
+                        
+                    </div>
+    
+                }
+                @else {
+
+                    <div class="reset-button">
+                        <button mat-icon-button >
+                            <mat-icon>restart_alt</mat-icon>
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</div>

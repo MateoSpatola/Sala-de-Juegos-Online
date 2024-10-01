@@ -7,7 +7,7 @@
         <div class="content">
             @if (!currentCard.cards) {
                 <div class="play-button">
-                    <button mat-icon-button (click)="drawCards()">
+                    <button mat-icon-button (click)="drawCards()" [disabled]="loading">
                         <mat-icon>play_arrow</mat-icon>
                     </button>
                 </div>
@@ -15,7 +15,7 @@
             @else {
                 @if (life != 0) {
                     <div class="close-button">
-                        <button mat-icon-button (click)="resetGame()">
+                        <button mat-icon-button (click)="resetGame()" [disabled]="loading">
                             <mat-icon>close</mat-icon>
                         </button>
                     </div>
@@ -32,11 +32,11 @@
                     </div>
     
                     <div class="buttons">
-                        <button mat-icon-button (click)="higher()" class="higher-button">
+                        <button mat-icon-button (click)="higher()" class="higher-button" [disabled]="loading">
                             <mat-icon>arrow_upward</mat-icon>
                         </button>
     
-                        <button mat-icon-button (click)="lower()" class="lower-button">
+                        <button mat-icon-button (click)="lower()" class="lower-button" [disabled]="loading">
                             <mat-icon>arrow_downward</mat-icon>
                         </button>
                     </div>
@@ -50,7 +50,7 @@
                         <p>{{ message }}</p>
                     </div>
                     <div class="reset-button">
-                        <button mat-icon-button (click)="resetGame()">
+                        <button mat-icon-button (click)="resetGame()" [disabled]="loading">
                             <mat-icon>restart_alt</mat-icon>
                         </button>
                     </div>
