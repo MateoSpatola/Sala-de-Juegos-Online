@@ -3,13 +3,15 @@ import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { firstValueFrom } from 'rxjs';
+import { ChatComponent } from '../../../shared/chat/chat.component';
 
 @Component({
   selector: 'app-mayor-menor',
   standalone: true,
   imports: [
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ChatComponent
   ],
   templateUrl: './mayor-menor.component.html',
   styleUrl: './mayor-menor.component.css'

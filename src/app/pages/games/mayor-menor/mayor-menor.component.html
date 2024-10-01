@@ -1,62 +1,62 @@
-<section class="game">
-    <h1>¿Mayor o Menor?</h1>
-    <div class="content">
-        @if (!currentCard.cards) {
-            <div class="play-button">
-                <button mat-icon-button (click)="drawCards()">
-                    <mat-icon>play_arrow</mat-icon>
-                </button>
-            </div>
-        }
-        @else {
-            @if (life != 0) {
-                <div class="close-button">
-                    <button mat-icon-button (click)="resetGame()">
-                        <mat-icon>close</mat-icon>
+<div class="container">
+    
+    <app-chat></app-chat>
+
+    <section class="game">
+        <h1>¿Mayor o Menor?</h1>
+        <div class="content">
+            @if (!currentCard.cards) {
+                <div class="play-button">
+                    <button mat-icon-button (click)="drawCards()">
+                        <mat-icon>play_arrow</mat-icon>
                     </button>
-                </div>
-
-                <div class="info">
-                    <p>Puntaje: {{ score }}</p>
-                    <p>Vidas restantes: {{ life }}</p>
-                    <p>Cartas restantes: {{ currentCard.remaining }}</p>
-                </div>
-                
-                <div class="cards">
-                    <img src="https://www.deckofcardsapi.com/static/img/back.png">
-                    <img src="{{currentCard.cards[0].image}}">
-                </div>
-
-                <div class="buttons">
-                    <button mat-icon-button (click)="higher()" class="higher-button">
-                        <mat-icon>arrow_upward</mat-icon>
-                    </button>
-
-                    <button mat-icon-button (click)="lower()" class="lower-button">
-                        <mat-icon>arrow_downward</mat-icon>
-                    </button>
-                </div>
-
-                <div  class="message">
-                    <p>{{ message }}</p>
                 </div>
             }
             @else {
-                <div  class="message">
-                    <p>{{ message }}</p>
-                </div>
-                <div class="reset-button">
-                    <button mat-icon-button (click)="resetGame()">
-                        <mat-icon>restart_alt</mat-icon>
-                    </button>
-                </div>
+                @if (life != 0) {
+                    <div class="close-button">
+                        <button mat-icon-button (click)="resetGame()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+    
+                    <div class="info">
+                        <p>Puntaje: {{ score }}</p>
+                        <p>Vidas restantes: {{ life }}</p>
+                        <p>Cartas restantes: {{ currentCard.remaining }}</p>
+                    </div>
+                    
+                    <div class="cards">
+                        <img src="https://www.deckofcardsapi.com/static/img/back.png">
+                        <img src="{{currentCard.cards[0].image}}">
+                    </div>
+    
+                    <div class="buttons">
+                        <button mat-icon-button (click)="higher()" class="higher-button">
+                            <mat-icon>arrow_upward</mat-icon>
+                        </button>
+    
+                        <button mat-icon-button (click)="lower()" class="lower-button">
+                            <mat-icon>arrow_downward</mat-icon>
+                        </button>
+                    </div>
+    
+                    <div  class="message">
+                        <p>{{ message }}</p>
+                    </div>
+                }
+                @else {
+                    <div  class="message">
+                        <p>{{ message }}</p>
+                    </div>
+                    <div class="reset-button">
+                        <button mat-icon-button (click)="resetGame()">
+                            <mat-icon>restart_alt</mat-icon>
+                        </button>
+                    </div>
+                }
             }
-        }
-    </div>
-</section>
-
-
-
-
-
+        </div>
+    </section>
+</div>
 

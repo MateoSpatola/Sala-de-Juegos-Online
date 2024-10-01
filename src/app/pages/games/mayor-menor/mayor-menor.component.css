@@ -1,4 +1,9 @@
+.container {
+    display: flex;
+}
+
 .game {
+    flex-grow: 1;
     padding: 1.5rem;
     display: flex;
     justify-content: center;
