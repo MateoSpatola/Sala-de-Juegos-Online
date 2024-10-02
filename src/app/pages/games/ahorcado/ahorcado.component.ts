@@ -37,15 +37,13 @@ export class AhorcadoComponent {
     ['Z', 'X', 'C', 'V', 'B', 'N', 'M']
   ];
 
-  ngOnInit() {
-  }
-
   async getRandomWord() {
     try {
       this.loading = true;
       const observable = this.http.get(this.apiUrl);
       const response: any = await firstValueFrom(observable);
       this.word = this.convertWord(response[0]);
+      console.log(this.word);
     } 
     catch (error: any) {
       this._notificationService.showAlert('Error inesperado: ' + error.message, 'error', 2000);
@@ -60,7 +58,6 @@ export class AhorcadoComponent {
   }
 
   handleKeyPress(key: string) {
-    console.log('Tecla presionada:', key);
     if (!this.word.includes(key)) {
       this.life--;
     }

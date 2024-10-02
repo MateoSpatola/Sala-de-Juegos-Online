@@ -1,1 +1,66 @@
-<p>preguntados works!</p>
+<div class="container">
+    
+    <app-chat></app-chat>
+
+    <section class="game">
+        <h1>Preguntados</h1>
+        <div class="content">
+
+            @if (!cryptos) {
+                <div class="play-info">
+                    <h5>¡Poné a prueba tu conocimiento sobre criptomonedas!</h5>
+                </div>
+                <div class="play-button">
+                    <button mat-icon-button (click)="startGame()" [disabled]="loading">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
+            }
+            @else {
+                @if (counter <= 5) {
+                    <div class="close-button">
+                        <button mat-icon-button (click)="exitGame()" [disabled]="loading">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="game-info">
+                        <p>Pregunta: {{ counter }} / 5</p>
+                        <p>Puntaje: {{ score }}</p>
+                    </div>
+
+                    <div class="question">
+                        <p>¿A qué criptomoneda pertenece esta imagen?</p>
+                    </div>
+
+                    <div class="image">
+                        <img [src]="correctOption.image">
+                    </div>
+                    
+                    <div class="options">
+                        @for(option of options; track $index) {
+                            <div class="option">
+                                <button mat-fab (click)="checkCorrectOption(option)" [disabled]="loading">{{ option.name }}</button>
+                            </div>
+                        }
+                    </div>
+                }
+                @else {
+                    <div class="close-button">
+                        <button mat-icon-button (click)="exitGame()" [disabled]="loading">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                    <div class="message">
+                        <p>Juego terminado, acertaste {{ score }} preguntas de 5!</p>
+                    </div>
+                    <div class="reset-button">
+                        <button mat-icon-button (click)="startGame()" [disabled]="loading">
+                            <mat-icon>restart_alt</mat-icon>
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</div>
