@@ -1,0 +1,59 @@
+<div class="container">
+    
+    <app-chat></app-chat>
+
+    <section class="game">
+        <h1>Reflex</h1>
+        <div class="content">
+            @if (!gameStarted) {
+                <div class="play-button">
+                    <button mat-icon-button (click)="startGame()">
+                        <mat-icon>play_arrow</mat-icon>
+                    </button>
+                </div>
+            }
+            @else {
+                @if (timeRemaining != 0) {
+                    <div class="close-button">
+                        <button mat-icon-button (click)="endGame()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+
+                    <div class="game-info">
+                        <p>Puntaje: {{ score }}</p>
+                        <p>Tiempo restante: {{ timeRemaining }}s</p>
+                    </div>
+
+                    <div class="target-area">
+                        @for(target of targets; ; track $index) {
+                            @if(target.visible) {
+                                <div 
+                                class="target"
+                                [ngStyle]="{ top: target.top + 'px', left: target.left + 'px' }"
+                                (click)="onTargetClick(target)">
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+                @else {
+                    <div class="close-button">
+                        <button mat-icon-button (click)="endGame()">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                    <div class="message">
+                        <p>Juego Terminado</p>
+                        <p>Puntaje Final: {{ score }}</p>
+                    </div>
+                    <div class="reset-button">
+                        <button mat-icon-button (click)="startGame()">
+                            <mat-icon>restart_alt</mat-icon>
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+    </section>
+</div>

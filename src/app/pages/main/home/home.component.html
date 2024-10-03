@@ -56,13 +56,13 @@
                 </mat-card-content>
             </mat-card>
 
-            <mat-card class="game" [routerLink]="isLoggedIn ? '/juego4' : null">
+            <mat-card class="game" [routerLink]="isLoggedIn ? '/reflex' : null">
                 <mat-card-header [class.locked]="!isLoggedIn">
-                    <mat-card-title><h3>Juego 4</h3></mat-card-title>
+                    <mat-card-title><h3>Reflex</h3></mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
                     <div [class.locked]="!isLoggedIn">
-                        <p>Acceso al contenido del juego.</p>
+                        <img src="reflex.png" alt="reflex" height="100px">
                     </div>
                     <div class="lock-message">
                         @if (!isLoggedIn) {

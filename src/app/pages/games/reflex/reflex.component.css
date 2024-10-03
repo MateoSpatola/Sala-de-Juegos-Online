@@ -1,0 +1,101 @@
+.container {
+    display: flex;
+}
+
+.game {
+    flex-grow: 1;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -70px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.target-area {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: #1e1e1e;
+    cursor: crosshair;
+    border-radius: 15px;
+}
+
+.target {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, 
+        #00b9f1 10%,
+        #f0f0f0 10%,
+        #f0f0f0 30%,
+        #00b9f1 30%,
+        #00b9f1 50%,
+        #f0f0f0 50%,
+        #f0f0f0 70%,
+        #00b9f1 70%,
+        #00b9f1 100%
+    );
+    border-radius: 50%;
+    position: absolute;
+    animation: shrink 3s linear infinite;
+}
+
+@keyframes shrink {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+.play-button button {
+    width: 60px;
+    height: 60px;
+    background-color: #00b9f1;
+    color: white;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-button button {
+    color: #dc3545;
+}
+
+.reset-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-button button {
+    width: 60px;
+    height: 60px;
+    background-color: #ffc107;
+    color: white;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.game-info {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+
+
+.message {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}

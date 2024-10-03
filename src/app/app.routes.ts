@@ -11,5 +11,6 @@ export const routes: Routes = [
     { path: 'ahorcado', loadComponent: () => import('./pages/games/ahorcado/ahorcado.component').then((m) => m.AhorcadoComponent) },
     { path: 'mayor-menor', loadComponent: () => import('./pages/games/mayor-menor/mayor-menor.component').then((m) => m.MayorMenorComponent) },
     { path: 'preguntados', loadComponent: () => import('./pages/games/preguntados/preguntados.component').then((m) => m.PreguntadosComponent) },
+    { path: 'reflex', loadComponent: () => import('./pages/games/reflex/reflex.component').then((m) => m.ReflexComponent) },
     { path: '**', loadComponent: () => import('./pages/main/error/error.component').then((m) => m.ErrorComponent) }
 ];
