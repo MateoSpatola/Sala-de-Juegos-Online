@@ -1,6 +1,7 @@
 .container {
     height: 80vh;
     background-color: white;
+    background-color: transparent;
 }
 
 .button-chat {

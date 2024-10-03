@@ -6,7 +6,7 @@
             <div class="title">Chat</div>
         
             <div class="messages">
-                @for(message of messages; track messages) {
+                @for(message of messages; track $index) {
                     <div class="message" [ngClass] = "{'my-message': message.uid === user?.uid, 'other-message': message.uid !== user?.uid}">
                         @if(message.uid !== user?.uid) {
                             <div class="username">
