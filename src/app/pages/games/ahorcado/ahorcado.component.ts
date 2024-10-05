@@ -25,7 +25,7 @@ export class AhorcadoComponent {
   apiUrl: string = "https://clientes.api.greenborn.com.ar/public-random-word"
 
   message: string = "";
-  life: number = 5;
+  imageCounter: number = 1;
   loading: boolean = false;
   word: string = "";
   gameOver: boolean = false;
@@ -59,29 +59,35 @@ export class AhorcadoComponent {
 
   handleKeyPress(key: string) {
     if (!this.word.includes(key)) {
-      this.life--;
+      this.imageCounter++;
     }
     this.keysPressed.push(key);
     this.checkWinner();
   }
 
   checkWinner() {
-    if (this.life == 0) {
+    if (this.imageCounter == 7) {
       this.message = "¡PERDISTE! La palabra era: " + this.word;
       this.gameOver = true;
     }
     else if(this.word.split('').every(key => this.keysPressed.includes(key)))
     {
+      this.imageCounter = 8;
       this.message = "¡GANASTE!";
       this.gameOver = true;
     }
   }
 
-  resetGame() {
+  endGame() {
     this.message = "";
-    this.life = 5;
+    this.imageCounter = 1;
     this.word = "";
     this.gameOver = false;
     this.keysPressed = [];
+  }
+
+  async resetGame() {
+    this.endGame();
+    await this.getRandomWord();
   }
 }
