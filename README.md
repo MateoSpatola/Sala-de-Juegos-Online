@@ -1,4 +1,4 @@
-# Sala de Juegos Online (Trabajo Práctico)
+# Sala de Juegos Online
 
 #### Materia: Laboratorio de Computación IV  
 #### Alumno: Mateo Spatola  
