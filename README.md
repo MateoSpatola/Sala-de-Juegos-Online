@@ -1,27 +1,100 @@
-# LaboIVTPSalaDeJuegos
+# Sala de Juegos Online (Trabajo Práctico)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+#### Materia: Laboratorio de Computación IV  
+#### Alumno: Mateo Spatola  
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Descripción del Proyecto  
+La **Sala de Juegos Online** es una aplicación web interactiva que incluye una variedad de juegos clásicos y un juego propio llamado **Reflex**.  
+El sistema permite a los usuarios registrarse, iniciar sesión, chatear y disfrutar de diferentes juegos diseñados para el entretenimiento y la habilidad.  
 
-## Code scaffolding
+**Alojamiento:** Firebase (incluye autenticación y base de datos).  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 2. Juegos Disponibles  
+- **Ahorcado:** Descubre la palabra seleccionando letras. Información obtenida desde una API.  
+- **Mayor o Menor:** Predice si la siguiente carta será mayor o menor. Mazo de cartas generado desde una API.  
+- **Preguntados (Criptomonedas):** Responde preguntas sobre criptomonedas con datos de una API.  
+- **Reflex (Propio):** Haz clic en círculos que disminuyen de tamaño antes de que desaparezcan.  
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## 3. Funcionalidades Principales  
+### Aplicación General:  
+- **Registro y Autenticación:**  
+  - Registro de nuevos usuarios con validación de datos.  
+  - Inicio de sesión y restablecimiento de contraseñas.  
+- **Sala de Juegos:**  
+  - Navegación hacia los diferentes juegos.  
+- **Chat:**  
+  - Comunicación en tiempo real entre los usuarios registrados.  
+- **Sección "Quién Soy":**  
+  - Información personal y descripción detallada del juego Reflex.  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Juegos:  
+- **Ahorcado:**  
+  - Juego clásico con interacción mediante botones.  
+- **Mayor o Menor:**  
+  - Juego simple basado en la predicción de cartas.  
+- **Preguntados:**  
+  - Juego de preguntas y respuestas sobre criptomonedas.  
+- **Reflex:**  
+  - Juego diseñado para evaluar rapidez y precisión.  
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 4. Imágenes Representativas  
 
-## Further help
+### **Inicio**
+![Inicio](Imagenes_readme/inicio.png)  
+Pantalla de inicio de la aplicación.  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![Inicio Logueado](Imagenes_readme/inicio_logueado.png)  
+Vista de la aplicación tras iniciar sesión.  
+
+### **Ingreso y Registro**
+![Ingreso](Imagenes_readme/ingreso.png)  
+Pantalla de inicio de sesión.  
+
+![Restablecer Contraseña](Imagenes_readme/restablecer_contraseña.png)  
+Pantalla para restablecer la contraseña.  
+
+![Registro](Imagenes_readme/registro.png)  
+Formulario de registro.  
+
+### **Sección Quién Soy**
+![Quién Soy](Imagenes_readme/quien_soy.png)  
+Información sobre el desarrollador y el juego Reflex.  
+
+### **Chat**
+![Chat](Imagenes_readme/chat.png)  
+Interfaz de chat entre usuarios.  
+
+### **Juegos**
+#### Ahorcado  
+![Ahorcado 1](Imagenes_readme/ahorcado_1.png)  
+Inicio del juego Ahorcado.  
+
+![Ahorcado 2](Imagenes_readme/ahorcado_2.png)  
+Adivinando palabras.  
+
+![Ahorcado Ganar](Imagenes_readme/ahorcado_ganar.png)  
+Pantalla de victoria.  
+
+![Ahorcado Perder](Imagenes_readme/ahorcado_perder.png)  
+Pantalla de derrota.  
+
+#### Mayor o Menor  
+![Mayor o Menor](Imagenes_readme/mayor_o_menor.png)  
+Interfaz del juego Mayor o Menor.  
+
+#### Preguntados  
+![Preguntados](Imagenes_readme/preguntados.png)  
+Juego de Preguntados con temática de criptomonedas.  
+
+#### Reflex  
+![Reflex](Imagenes_readme/reflex.png)  
+Interfaz del juego Reflex.  
+
